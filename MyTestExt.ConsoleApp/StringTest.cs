@@ -185,4 +185,10 @@ namespace MyTestExt.ConsoleApp
         public string Item2 { get; set; }
     }
 
+
+    public class AuotProPearty
+    {
+        public string Name { get; set; } = "自动属性";
+
+    }
 }
