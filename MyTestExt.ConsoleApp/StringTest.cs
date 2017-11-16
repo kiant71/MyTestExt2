@@ -8,6 +8,10 @@ namespace MyTestExt.ConsoleApp
 {
     public class StringTest
     {
+        public string ABCDEDF;
+
+        // public var ABCDEDFG;  隐式声明必须是局部
+
         public static void Do()
         {
             //BulidSeq();
@@ -66,6 +70,37 @@ namespace MyTestExt.ConsoleApp
             temp = 0.5M;
             vx += temp;
             var bb3 = Math.Floor(vx) / vt;
+
+
+            var aka = new {Name = "一二三", Code = "123"};
+            //aka.Name = "一二三该";   匿名类属性只读
+
+            //var akb = new { Name = null, Code = "123" };  对象不能为空
+
+
+            //var k = 120;
+            //switch (k)
+            //{
+            //    case k < 100:
+            //        break;
+            //}
+
+
+            var dict1 = new Dictionary<int, string> {[4] = "four", [2] = "two"};
+
+
+            int k = 1;
+            var str21 = "17";
+            if (int.TryParse(str21, out var num21))
+                k = num21;
+
+            var intabc = 4;
+
+            var (Nid, Nname ) = Get();
+
+
+            long ab = 6220_1234_5678;
+
         }
 
         // 字符串自增
@@ -152,6 +187,12 @@ namespace MyTestExt.ConsoleApp
             return str;
         }
 
+
+
+        public static (int ID, string Name) Get()
+        {
+            return (ID : 2, Name : "AD" );
+        }
     }
 
 
@@ -176,6 +217,9 @@ namespace MyTestExt.ConsoleApp
             }
         }
 
+
+        public string ABCD { get; } = "AGCD";
+
     }
 
     public class ABItem
@@ -191,4 +235,20 @@ namespace MyTestExt.ConsoleApp
         public string Name { get; set; } = "自动属性";
 
     }
+
+
+
+    public class ClassUser
+    {
+        public string Name { get; set; }
+
+        public string Code { get; set; }
+
+        public string Full => Name + Code;
+
+        public string ToStr() => Name + Code;
+
+    }
+
+
 }
