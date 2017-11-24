@@ -20,7 +20,7 @@ namespace ConsoleApplication1
             //new AsyncTest().Test();
 
             //DataAccessTest.Test();
-            
+
             // 时间
             //DateTimeTest.Test();
 
@@ -42,9 +42,15 @@ namespace ConsoleApplication1
 
             //OpenImApiTest.Test();
 
+            //RSATest.Do();
+
+            //SignClientTest.Do();
+
+            SignServerTest.Do();
+
             //TestLinq.Test();
 
-            RequestTest.Test();
+            //RequestTest.Test();
 
             //new RegularTest().Test();
 

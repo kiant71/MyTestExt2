@@ -53,6 +53,8 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DotNetZip">
       <HintPath>..\packages\DotNetZip.1.10.1\lib\net20\DotNetZip.dll</HintPath>
     </Reference>
@@ -107,7 +109,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegularTest.cs" />
     <Compile Include="RequestTest.cs" />
+    <Compile Include="RSATest.cs" />
     <Compile Include="ServiceControllerTest.cs" />
+    <Compile Include="SignClientTest.cs" />
+    <Compile Include="SignServerTest.cs" />
     <Compile Include="SmtpTest.cs" />
     <Compile Include="SortTest.cs" />
     <Compile Include="EnCodingTest.cs" />
