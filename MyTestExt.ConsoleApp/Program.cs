@@ -46,7 +46,7 @@ namespace ConsoleApplication1
 
             //SignClientTest.Do();
 
-            SignServerTest.Do();
+            SignServerTest.Do1();
 
             //TestLinq.Test();
 
