@@ -19,6 +19,8 @@ namespace ConsoleApplication1
 
             //new AsyncTest().Test();
 
+            new BspTest().Do();
+
             //DataAccessTest.Test();
 
             // 时间
@@ -29,6 +31,7 @@ namespace ConsoleApplication1
 
 
             //EnumTest.DoTest();
+            //DynamicTest.Do();
             //EnCodingTest.Test();
 
             //FileTest.Do();
@@ -46,7 +49,7 @@ namespace ConsoleApplication1
 
             //SignClientTest.Do();
 
-            SignServerTest.Do1();
+            //SignServerTest.Do1();
 
             //TestLinq.Test();
 

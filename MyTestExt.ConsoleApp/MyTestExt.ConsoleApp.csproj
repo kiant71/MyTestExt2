@@ -91,10 +91,12 @@
     <Compile Include="AesTest.cs" />
     <Compile Include="AsyncTest.cs" />
     <Compile Include="AsyncTest2.cs" />
+    <Compile Include="BspTest.cs" />
     <Compile Include="DataAccessTest.cs" />
     <Compile Include="DateTimeTest.cs" />
     <Compile Include="DictionaryTest.cs" />
     <Compile Include="DownTest.cs" />
+    <Compile Include="DynamicTest.cs" />
     <Compile Include="EnumTest.cs" />
     <Compile Include="FileTest.cs" />
     <Compile Include="ForEachTest.cs" />
@@ -112,7 +114,7 @@
     <Compile Include="RSATest.cs" />
     <Compile Include="ServiceControllerTest.cs" />
     <Compile Include="SignClientTest.cs" />
-    <Compile Include="SignServerTest.cs" />
+    <Compile Include="RSATest2.cs" />
     <Compile Include="SmtpTest.cs" />
     <Compile Include="SortTest.cs" />
     <Compile Include="EnCodingTest.cs" />

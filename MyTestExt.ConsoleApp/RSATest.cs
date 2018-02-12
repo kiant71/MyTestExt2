@@ -7,6 +7,7 @@ using System.Text;
 
 namespace MyTestExt.ConsoleApp
 {
+    [Obsolete("建议作废？看新的？")]
     public class RSATest 
     {
         public static void Do()
@@ -17,18 +18,21 @@ namespace MyTestExt.ConsoleApp
             var raw = Encoding.ASCII.GetBytes("Hello Wu");
             Console.WriteLine(raw);
 
+            // 公钥 - 加密
             var r = KeyPair.Encrypt(raw, key);
             Console.WriteLine(r);
 
+            // 生成签名
             var signature = KeyPair.Sign(key, r);
             Console.WriteLine(signature);
 
 
             var success = KeyPair.VerifyData(key, r, signature);
-
             Console.WriteLine(success);
 
 
+
+            // 私钥 - 解密
             var u = Encoding.ASCII.GetString(KeyPair.Decrypt(r, key));
             Console.WriteLine(u);
 

@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace MyTestExt.ConsoleApp
 {
-    
-    public class SignServerTest
+
+    // 参考 “数字签名是什么？”  作者： 阮一峰  http://www.ruanyifeng.com/blog/2011/08/what_is_a_digital_signature.html
+
+    public class RSATest2
     {
         public static string PubKey = "BgIAAACkAABSU0ExAAIAAAEAAQD79nsWXDci0XU8TNFrXiEdpIYRSl1T98U858CThi0qFLyQkJfxWlQ8w/f39psSNv+peFPPLLApBS4t10eYfLXC";
 
@@ -18,11 +20,11 @@ namespace MyTestExt.ConsoleApp
         {
             var a1 = RSACrypto.CreateKey();
 
-            // 方式1：客户端通过公钥加密原始数据，然后提交到服务器端
+            // 方式1：【客户端】-【公钥】加密原始数据，然后提交到服务器端
             var baseStr = "这是个原始数据信息12345！";
             var encBytes = RSACrypto.Encrypt(baseStr, PubKey);
 
-            // 方式1：模拟服务器端收到数据，然后进行解密
+            // 方式1：【服务器】-【私钥】解密收到的数据
             var decStr = RSACrypto.Decrypt(encBytes, PriKey);
             if (baseStr != decStr)
             {
@@ -60,7 +62,8 @@ namespace MyTestExt.ConsoleApp
 
 
 
-            // 其下走方式二的校验。
+
+            // 然后走方式二的【签名】校验（防篡改）
 
 
             // 方式二：对内容进行HASH，生成签名，好处1.防止待加密内容过长 2.对方可校验发送方。3.对方可校验内容是否被篡改

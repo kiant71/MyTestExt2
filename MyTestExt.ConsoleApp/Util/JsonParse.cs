@@ -43,7 +43,7 @@ namespace ConsoleApplication1.Util
         /// <returns></returns>
         public static T Deserialize<T>(string json) where T : class
         {
-            if (string.IsNullOrEmpty(json)) return null;
+            if (string.IsNullOrEmpty(json)) return default(T);
             return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(json, jsonSerializerSettings);
 
         }

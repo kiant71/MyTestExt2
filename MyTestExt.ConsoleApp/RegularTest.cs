@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using ConsoleApplication1.Util;
 
 namespace MyTestExt.ConsoleApp
 {
@@ -47,13 +48,44 @@ namespace MyTestExt.ConsoleApp
             //    Console.WriteLine(match.Groups["field"].Value);
             //}
 
-            var str = "sdfsd @陈伟 @陈永芳 @王云 @温雪明 sdfsdf";
-            var regex = new Regex(@"@(\w+)", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+            //var str = "sdfsd @陈伟 @陈永芳 @王云 @温雪明 sdfsdf";
+            //var regex = new Regex(@"@(\w+)", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+            //var matches = regex.Matches(str);
+            //foreach (Match match in matches)
+            //{
+            //    Console.WriteLine(match.Groups[1]);
+            //}
+
+            var ccStr = "[    {      \"CompanyID\": 2181,      \"AtKey\": \"{2181_1_100761}\",      \"AtType\": 1,      \"Name\": \"001测试\",      \"AtValue\": \"100761\"    },    {      \"CompanyID\": 2181,      \"AtKey\": \"{2181_1_117228}\",      \"AtType\": 1,      \"Name\": \"02\",      \"AtValue\": \"117228\"    },    {      \"CompanyID\": 2181,      \"AtKey\": \"{2181_1_103284}\",      \"AtType\": 1,      \"Name\": \"Kkkk\",      \"AtValue\": \"103284\"    },    {      \"CompanyID\": 2181,      \"AtKey\": \"{2181_1_103356}\",      \"AtType\": 1,      \"Name\": \"T1001\",      \"AtValue\": \"103356\"    },    {      \"CompanyID\": 2181,      \"AtKey\": \"{2181_1_103287}\",      \"AtType\": 1,      \"Name\": \"test00001\",      \"AtValue\": \"103287\"    }  ]";
+            var cCs = JsonParse.Deserialize<List<dynamic>>(ccStr);
+
+            var str = @"分享[不屑][哼哼][哼哼][哼哼]{2181_1_100761} {2181_1_117228} {2181_1_103284} {2181_1_103356} {2181_1_103287} 啦啦啦啦[不屑][不屑][不屑][不屑]
+
+[不屑][不屑]
+{2181_1_103284} 
+{2181_1_103356} 
+[不屑][不屑]";
+            var regex = new Regex(@"\{[\w.]+\}", RegexOptions.IgnoreCase );
             var matches = regex.Matches(str);
+
+            var sb = new StringBuilder("");
+            int index = 0;
             foreach (Match match in matches)
             {
-                Console.WriteLine(match.Groups[1]);
+                //Console.WriteLine(match.Groups[0]);
+                sb.Append(str.Substring(index, match.Index- index));  // 上一个的结尾，到当前的开头 的正常内容
+
+                var find = cCs.FirstOrDefault(c => match.Groups[0].Value.Equals(c?.AtKey?.ToString(), StringComparison.OrdinalIgnoreCase));
+                if (find != null && find.Name != null)
+                    sb.Append("@" + find.Name.ToString()); // 替换名字
+                else
+                    sb.Append(" ");
+
+                index = match.Index + match.Length; // 记录这一个的结尾
             }
+
+            var ab = sb.ToString();
+
 
 
             //string strInput = "张三[xxx@163.com],李四[yyy@suhu.com],王五[zzz@gmai.com]";
