@@ -18,8 +18,9 @@ namespace ConsoleApplication1
             //var bb = aa.Take(20);
 
             //new AsyncTest().Test();
+            //new AttributeTest().Do();
 
-            new BspTest().Do();
+            //new BspTest().Do();
 
             //DataAccessTest.Test();
 
@@ -37,6 +38,7 @@ namespace ConsoleApplication1
             //FileTest.Do();
             //ForEachTest.Do();
 
+            JsonTest.Do();
 
             //new IntergTest().Do();
 
@@ -60,6 +62,8 @@ namespace ConsoleApplication1
             //ReadErrorCode();
 
             //StringTest.Do();
+
+            //new XmlTest().Do();
 
 
             while (true)

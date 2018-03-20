@@ -91,6 +91,7 @@
     <Compile Include="AesTest.cs" />
     <Compile Include="AsyncTest.cs" />
     <Compile Include="AsyncTest2.cs" />
+    <Compile Include="AttributeTest.cs" />
     <Compile Include="BspTest.cs" />
     <Compile Include="DataAccessTest.cs" />
     <Compile Include="DateTimeTest.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="ForEachTest.cs" />
     <Compile Include="IntergTest.cs" />
     <Compile Include="IonicZipTest.cs" />
+    <Compile Include="JsonTest.cs" />
     <Compile Include="ListTest.cs" />
     <Compile Include="LumiSoftTest.cs" />
     <Compile Include="Md5Test.cs" />
@@ -128,9 +130,12 @@
     <Compile Include="Util\OpenImApi.cs" />
     <Compile Include="Util\SqlMapper.cs" />
     <Compile Include="WebClientTest.cs" />
+    <Compile Include="XmlTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
