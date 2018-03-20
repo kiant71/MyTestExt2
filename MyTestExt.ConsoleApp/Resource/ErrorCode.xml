@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Language>
+  <add key ="-1000"  value="无效用户编号"/>
+  <add key ="-1000"  value="密码不正确"/>
+  <add key ="-1002"  value="UDO对象名为空"/>
+  <add key ="-1002"  value="获取UDO对象出错"/>
+  <add key ="-1004"  value="客户编码无效"/>
+  <add key ="-1005"  value="连接SBO数据库失败,错误代码:{0},原因:{1}"/>
+  <add key ="-1006"  value="SBO保存单据数据不能为空"/>
+  <add key ="-1007"  value="找不到SBO对象"/>
+  <add key ="-1008"  value="参数传递错误"/>
+  <add key ="-1009"  value="窗口对象错误"/>
+  <add key ="-1010"  value="无法获取货币 {0} 的汇率!"/>
+</Language>
+
