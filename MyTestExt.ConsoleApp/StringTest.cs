@@ -14,6 +14,10 @@ namespace MyTestExt.ConsoleApp
 
         public static void Do()
         {
+
+            var strA222 = string.Format("123123");
+            Debug("sdfsdf" + "3424233333");
+
             //BulidSeq();
 
             var tmp0 = new List<int> {4, 6, 7, 888, 99};
@@ -192,6 +196,19 @@ namespace MyTestExt.ConsoleApp
         public static (int ID, string Name) Get()
         {
             return (ID : 2, Name : "AD" );
+        }
+
+
+        public static void Debug(string format, params object[] args)
+        {
+            try
+            {
+                var aaa = string.Format(format, args);
+            }
+            catch (Exception ex)
+            {
+                
+            }
         }
     }
 
