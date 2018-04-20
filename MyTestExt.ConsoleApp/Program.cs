@@ -38,7 +38,7 @@ namespace ConsoleApplication1
             //FileTest.Do();
             //ForEachTest.Do();
 
-            JsonTest.Do();
+            //JsonTest.Do();
 
             //new IntergTest().Do();
 
@@ -63,7 +63,7 @@ namespace ConsoleApplication1
 
             //StringTest.Do();
 
-            //new XmlTest().Do();
+            XmlTest.Do();
 
 
             while (true)
