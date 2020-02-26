@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="https://ws.zhongdengwang.org.cn/mfrs_ws/services/InitRegisterService" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="WSInitRegisterServiceService" targetNamespace="https://ws.zhongdengwang.org.cn/mfrs_ws/services/InitRegisterService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="https://ws.zhongdengwang.org.cn/mfrs_ws/services/InitRegisterService" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="initRegister" type="tns:initRegister" />
+      <xs:element name="initRegisterResponse" type="tns:initRegisterResponse" />
+      <xs:complexType name="initRegister">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="registerTypeBz" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="platformAuthCode" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="loginToken" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="xmlFileName" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="xmlFileContent" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="attachmentsZip" type="xs:base64Binary" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="initRegisterResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:base64Binary" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="initRegister">
+    <wsdl:part name="parameters" element="tns:initRegister" />
+  </wsdl:message>
+  <wsdl:message name="initRegisterResponse">
+    <wsdl:part name="parameters" element="tns:initRegisterResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WSInitRegisterService">
+    <wsdl:operation name="initRegister">
+      <wsdl:input name="initRegister" message="tns:initRegister" />
+      <wsdl:output name="initRegisterResponse" message="tns:initRegisterResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSInitRegisterServiceServiceSoapBinding" type="tns:WSInitRegisterService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="initRegister">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="initRegister">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="initRegisterResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSInitRegisterServiceService">
+    <wsdl:port name="WSInitRegisterServicePort" binding="tns:WSInitRegisterServiceServiceSoapBinding">
+      <soap:address location="https://ws.zhongdengwang.org.cn/mfrs_ws_test/services/InitRegisterService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

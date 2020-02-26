@@ -25,7 +25,7 @@ namespace ConsoleApplication1
             //DataAccessTest.Test();
 
             // 时间
-            //DateTimeTest.Test();
+            //DateTimeTest.Test_StringParse();
 
             //DictionaryTest.Test();
             //DownTest.Do();
@@ -38,33 +38,55 @@ namespace ConsoleApplication1
             //FileTest.Do();
             //ForEachTest.Do();
 
-            JsonTest.Do();
+            //HttpClientTest.Do();
+
+            //JsonTest.Do();
 
             //new IntergTest().Do();
 
-            //new ListTest().Do();
+            //InheriteTest.Do();
 
+            //ITextSharpTest.Do();
+
+            new ListTest().Do();
+
+            //MongodbTest.Do();
 
             //OpenImApiTest.Test();
 
-            //RSATest.Do();
+            //OrmLiteTest.Do3();
 
-            //SignClientTest.Do();
+            //new PdfTest().Do();
 
-            //SignServerTest.Do1();
-
-            //TestLinq.Test();
-
-            //RequestTest.Test();
-
-            //new RegularTest().Test();
+            //RSATest2.Do4();
 
             //ReadErrorCode();
 
-            //StringTest.Do();
+            //RegularTest.Do();
+
+            //SharpCompressTest.Do();
+            //SignClientTest.Do();
+            //SignServerTest.Do1();
+            //new SM2Test().Do();
+            //new SM2Test2().Do();
+            //new SM2Test3().Do();
+            //new SM2Test4().Do();
+            //new StringTest().Do();
+
+            //TestLinq.Test();
+
+
+            //WebClientTest.Do();
+
+
+
+
 
             //new XmlTest().Do();
 
+            //ZhongDengTest.Do();
+
+            //new ZipTest().Do();
 
             while (true)
                 System.Threading.Thread.Sleep(1000);

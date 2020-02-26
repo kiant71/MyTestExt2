@@ -10,6 +10,9 @@ namespace MyTestExt.ConsoleApp
     {
         public static void Test()
         {
+            var statDate = int.Parse(DateTime.Now.ToString("yyyyMMdd"));
+
+
             var strFormat = "yyyy年MM月dd日 HH点mm分";
             var dt1 = new DateTime(2016, 1, 2, 3, 4, 5).ToString(strFormat);
             var dt2 = new DateTime(2016, 10, 11, 19, 10, 11).ToString(strFormat); ;
@@ -137,6 +140,22 @@ namespace MyTestExt.ConsoleApp
 
             Console.Read();
         }
+
+        public static void Test_StringParse()
+        {
+            var str = "2018-10-22";
+            if (string.IsNullOrWhiteSpace(str) || str.Length < 10 ||
+                !int.TryParse(str.Substring(0, 4), out var year) ||
+                !int.TryParse(str.Substring(5, 2), out var month) ||
+                !int.TryParse(str.Substring(8, 2), out var day) ||
+                !DateTime.TryParse(string.Format("{0}-{1}-{2}", year, month, day), out var dt) ||
+                dt.CompareTo(DateTime.Now) >= 1 ||
+                dt.CompareTo(DateTime.Now.AddYears(-1)) <= 0)
+            {
+                var aa = " 开票时间有错误";
+            }
+        }
+
 
 
         public static void TestUtc()

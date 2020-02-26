@@ -5,6 +5,7 @@ using ConsoleApplication1.Util;
 using System.Linq;
 using MyTestExt.ConsoleApp.Dapper;
 using System.Xml.Linq;
+using MyTestExt.Utils.Json;
 using Top.Api.Response;
 using Top.Api.Util;
 
@@ -133,20 +134,20 @@ namespace MyTestExt.ConsoleApp
         public static void DoUtilTest()
         {
             string aa = "";
-            var bb = JsonParse.Serialize("");
+            var bb = JsonNet.Serialize("");
 
-            var cc = JsonParse.Deserialize<ImUser>("");
+            var cc = JsonNet.Deserialize<ImUser>("");
 
             var kkkk = "123";
-            var str = JsonParse.Serialize(new {kkkk});
+            var str = JsonNet.Serialize(new {kkkk});
 
             object kk2 = null;
-            var str2 = JsonParse.Serialize(kk2);
+            var str2 = JsonNet.Serialize(kk2);
 
 
             try
             {
-                var dd = JsonParse.Serialize(null);
+                var dd = JsonNet.Serialize(null);
                 var a1 = TopUtils.ParseResponse<OpenimUsersAddResponse>("");
                 var a2 = TopUtils.ParseResponse<OpenimUsersAddResponse>(null);
             }

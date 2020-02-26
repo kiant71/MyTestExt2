@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTestExt.ConsoleApp", "MyT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTestExt.WebApi", "MyTestExt.WebApi\MyTestExt.WebApi.csproj", "{4C3AFE65-5030-4B10-879A-E9EEB153D5D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTestExt.Util", "MyTestExt.Util\MyTestExt.Util.csproj", "{E60AB364-8512-4E2A-9EEC-6B5C06FAD5C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTestExt.Utils", "MyTestExt.Util\MyTestExt.Utils.csproj", "{E60AB364-8512-4E2A-9EEC-6B5C06FAD5C4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTestExt.WinApp", "MyTestExt.WinApp\MyTestExt.WinApp.csproj", "{59AAFE76-BD21-4401-A55C-3F5BB7552FD3}"
 EndProject

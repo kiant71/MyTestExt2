@@ -4,9 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyTestExt.Util
+namespace MyTestExt.ConsoleApp
 {
-    public class Class1
+    public class UploadPrivateTest
     {
+        public void Do()
+        {
+        }
+
+
+
+
     }
 }

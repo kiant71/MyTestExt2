@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ConsoleApplication1.Util;
 using MyTestExt.ConsoleApp.Dapper;
+using MyTestExt.Utils.Json;
 
 namespace MyTestExt.ConsoleApp
 {
@@ -32,7 +33,7 @@ namespace MyTestExt.ConsoleApp
 
 
             //TODO.从公网上传输过来的数据，最好定义一个对象封装（规范参数）
-            dynamic inputObj = JsonParse.Deserialize<dynamic>(input);
+            dynamic inputObj = JsonNet.Deserialize<dynamic>(input);
 
 
             //####### 实际上根据 BizId 解析出来的dbname, sql 

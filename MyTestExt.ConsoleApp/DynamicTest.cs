@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ConsoleApplication1.Util;
+using MyTestExt.Utils.Json;
 
 namespace MyTestExt.ConsoleApp
 {
@@ -54,7 +55,7 @@ namespace MyTestExt.ConsoleApp
             });
 
 
-            var str = JsonParse.Serialize(list);
+            var str = JsonNet.Serialize(list);
 
         }
 

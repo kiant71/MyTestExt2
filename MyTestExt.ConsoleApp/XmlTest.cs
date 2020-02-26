@@ -48,7 +48,7 @@ namespace MyTestExt.ConsoleApp
             };
 
             var aa = model.ToXml();
-            var bb = XmlExtends.ToXml2(req);
+            var bb = XmlExtends.ToXmlUtf8(req);
         }
         
         public static string Do2()
@@ -82,7 +82,7 @@ namespace MyTestExt.ConsoleApp
             };
 
 
-            var bb = XmlExtends.ToXml2(req);
+            var bb = XmlExtends.ToXmlUtf8(req);
             return bb;
         }
 
@@ -106,7 +106,6 @@ namespace MyTestExt.ConsoleApp
         /// </summary>
         public static string ToXml<T>(this T o) where T : new()
         {
-            string ret;
             using (var ms = new MemoryStream())
             {
                 var xs = new XmlSerializer(typeof(T));
@@ -114,30 +113,16 @@ namespace MyTestExt.ConsoleApp
                 ms.Flush();
                 ms.Position = 0;
                 var sr = new StreamReader(ms);
-                ret = sr.ReadToEnd();
+                return sr.ReadToEnd();
             }
-            return ret;
         }
 
 
         /// <summary>
         /// 对象序列化为Xml格式的字符串
         /// </summary>
-        public static string ToXml2<T>(T o) where T : new()
+        public static string ToXmlUtf8<T>(T o) where T : new()
         {
-            //string ret;
-            //using (var ms = new MemoryStream())
-            //{
-            //    var xs = new XmlSerializer(typeof(T));
-            //    xs.Serialize(ms, o);
-            //    ms.Flush();
-            //    ms.Position = 0;
-            //    var sr = new StreamReader(ms, Encoding.UTF8);
-            //    ret = sr.ReadToEnd();
-            //}
-            //return ret;
-
-            // 这个是根据系统编码的？ encoding="utf-16"? 
             using (var writer = new StringWriterUTF8())
             {
                 new XmlSerializer(o.GetType()).Serialize(writer, o);
@@ -157,6 +142,11 @@ namespace MyTestExt.ConsoleApp
 
 
     public class StringWriterUTF8 : StringWriter
+    {
+        public override Encoding Encoding => Encoding.UTF8;
+    }
+
+    public class StringWriterZhongDeng : StringWriter
     {
         public override Encoding Encoding => Encoding.UTF8;
     }

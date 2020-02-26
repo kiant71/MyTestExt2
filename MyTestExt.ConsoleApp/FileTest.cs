@@ -12,6 +12,35 @@ namespace MyTestExt.ConsoleApp
     {
         public static void Do()
         {
+            MoveTest();
+        }
+
+
+        public static void MoveTest()
+        {
+            var fileStr = @"D:\1.Desktop\result\QueryBySubject_OK.zip";
+            var fi = new FileInfo(fileStr);
+
+            var _ftpFolder = @"D:\1.Desktop";
+
+            var relativePath = fi.DirectoryName.Length > _ftpFolder.Length
+                ? fi.DirectoryName.Replace(_ftpFolder + @"\", "")
+                : ""; // ex: bbb\ddd
+
+            var _custFolder = @"D:\0.Work";
+            var backFolder = string.Format(@"{0}-backup\{1}-{2}\{3}\{4}"
+                , _custFolder, DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, relativePath);
+            var targetFile = backFolder + @"\" + fi.Name;
+
+
+            var relativePath2 = @"F:\FTP\S0027\易捷测报\2019.12".Length > @"F:\Ftp".Length
+                ? @"F:\Ftp\S0027\易捷测报\2019.12".Replace(@"F:\Ftp" + @"\", "")
+                : ""; // ex: bbb\ddd
+        }
+
+
+        public static void Do1()
+        {
             var downPath = @"C:\!ssd_data\Project\relate2_down";
             var instPath = @"C:\!ssd_data\Project\relate1";
 

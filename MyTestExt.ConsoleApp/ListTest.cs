@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using ConsoleApplication1.Util;
+using MyTestExt.Utils.Json;
 
 namespace MyTestExt.ConsoleApp
 {
@@ -41,7 +42,9 @@ namespace MyTestExt.ConsoleApp
             //aa.Sort((x, y) => y - x);
 
 
-            SortListTest();
+            //SortListTest();
+
+            ToListTest();
         }
 
 
@@ -53,8 +56,8 @@ namespace MyTestExt.ConsoleApp
             sl.Add(1, "aaa");
             sl.Add(2, "bbb");
 
-            var a1 = JsonParse.Serialize(sl);
-            var sl2 = JsonParse.Deserialize<SortedList>(a1);
+            var a1 = JsonNet.Serialize(sl);
+            var sl2 = JsonNet.Deserialize<SortedList>(a1);
 
 
 
@@ -74,10 +77,40 @@ namespace MyTestExt.ConsoleApp
             return ret;
         }
 
+        public void ToListTest()
+        {
+            var list1 = new List<ABModel>
+            {
+                new ABModel{A = "1A", B = "1B"},
+                new ABModel{A = "2A", B = "2B"},
+                new ABModel{A = "3A", B = "3B"},
+            };
+
+            var list2 = list1.ToList();
+
+            var flag1 = list1 == list2;
+            var flag10 = list1.Equals(list2);
+
+            var flag2 = list1[0] == list2[0];
+            var flag20 = list1[0].Equals(list2[0]);
+
+            list1[0].A = "1a";
+
+            var aa = list1[0].A;  // "1a"
+            var bb = list2[0].A;  // "1a"
+        }
 
 
-        
+        #region MyRegion
 
+        public class ABModel
+        {
+            public string A { get; set; }
+
+            public string B { get; set; }
+        }
+
+        #endregion
     }
 
     public static class DataTableExtends

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MyTestExt.ConsoleApp.Util;
+using MyTestExt.Utils;
 
 namespace MyTestExt.ConsoleApp
 {
@@ -12,8 +14,42 @@ namespace MyTestExt.ConsoleApp
 
         // public var ABCDEDFG;  隐式声明必须是局部
 
-        public static void Do()
+        public void Do()
         {
+            //Do_Base64();
+
+            ReplaceTest();
+        }
+
+
+
+
+        public void ReplaceTest()
+        {
+            var input = "中地abc位， 阿aBC斯顿撒Abc多拉Ac屎代理ABC费开始的开始都放声大哭";
+            var parten = "abc";
+            var target = "---";
+            var output = StringHelper.ReplaceIgnoreCase(input, parten, target);
+        }
+
+        public static void Do1()
+        {
+            var sss = "1111=a1111a\\r\\n2222=b22b\\r\\n";
+            var arrInv = sss.Split("\\r\\n".ToCharArray());
+            foreach (var invStr in arrInv)
+            {
+                if (string.IsNullOrWhiteSpace(invStr))
+                    continue;
+
+                var arrValue = invStr.Split('=');
+                if (arrValue.Length >= 2)
+                {
+                    var a111 = arrValue[0];
+                    var a222 = arrValue[1];
+                }
+            }
+
+
             //BulidSeq();
 
             var tmp0 = new List<int> {4, 6, 7, 888, 99};
@@ -101,6 +137,21 @@ namespace MyTestExt.ConsoleApp
 
             long ab = 6220_1234_5678;
 
+        }
+
+        public static void Do_Split()
+        {
+            var str =
+                @"\r\n单据错误：1\r\n专用发票，购方税号长度错误;\r\n专用发票，购方地址电话为空;\r\n专用发票，购方银行帐号为空;\r\n专用发票税额为0\r\n明细中存在数量为0的明细\r\n\r\n单据错误：2\r\n专用发票，购方税号长度错误;\r\n专用发票，购方地址电话为空;\r\n专用发票，购方银行帐号为空;\r\n专用发票税额为0\r\n明细中存在数量为0的明细\r\n\r\n单据错误：3\r\n专用发票，购方税号长度错误;\r\n专用发票，购方地址电话为空;\r\n专用发票，购方银行帐号为空;\r\n专用发票税额为0\r\n明细中存在数量为0的明细\r\n\r\n";
+        }
+
+        public static void Do_Base64()
+        {
+            var str =
+                "{  \"CompanyID\": 1,  \"UserSign\": 100021,  \"UserName\": \"张三 waill\",  \"ImgFullUrl\": \"https://download1.100mubiao.com/group1/M00/00/53/wKhkHVeQmc6EUqLnAAAAADLzWu0426.jpg\",  \"SessionKey\": \"8a22952f78e74030ab8933db612017de\"}";
+
+            var encode = ConvertValue.EncodeBase64(str);
+            var decode = ConvertValue.DecodeBase64(encode);
         }
 
         // 字符串自增

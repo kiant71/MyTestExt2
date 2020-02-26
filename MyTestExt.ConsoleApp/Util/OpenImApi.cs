@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MyTestExt.Utils.Json;
 using Top.Api;
 using Top.Api.Domain;
 using Top.Api.Request;
@@ -73,7 +74,7 @@ namespace ConsoleApplication1.Util
                     {
                         Log.WriteLog(
                             string.Format("调用OpenImApi 出错！云旺服务内部错误，稍后重试。第 {0}/10 次。 \n 错误信息：{1} \n 请求信息：{2}，{3}\n"
-                                , counter, JsonParse.Serialize(response), request, JsonParse.Serialize(request)));
+                                , counter, JsonNet.Serialize(response), request, JsonNet.Serialize(request)));
                         System.Threading.Thread.Sleep(1000); // 延迟一秒重试时间
                         continue;
                     }
@@ -84,7 +85,7 @@ namespace ConsoleApplication1.Util
                         replayErr[rspCode] = true;
                         Log.WriteLog(
                             string.Format("调用OpenImApi 出错！自定义重试错误，稍后重试。第 {0}/10 次，增速+2。 \n 错误信息：{1} \n 请求信息：{2}，{3}\n"
-                                , counter, JsonParse.Serialize(response), request, JsonParse.Serialize(request)));
+                                , counter, JsonNet.Serialize(response), request, JsonNet.Serialize(request)));
                         System.Threading.Thread.Sleep(1000); // 延迟一秒重试时间
                         counter += 2;
                         continue;
@@ -93,7 +94,7 @@ namespace ConsoleApplication1.Util
                     // case3：返回错误。ISV 错误： 这种错误产生于参数非法。需要调用方检查参数
                     Log.WriteLog(
                         string.Format("调用OpenImApi 出错！请求参数非法，请检查检查请求参数。 \n 错误信息：{0} \n 请求信息：{1}，{2}\n"
-                            , JsonParse.Serialize(response), request, JsonParse.Serialize(request)));
+                            , JsonNet.Serialize(response), request, JsonNet.Serialize(request)));
                     return ret;
                 }
                 catch (Exception ex)
@@ -101,7 +102,7 @@ namespace ConsoleApplication1.Util
                     // case4：运行错误（比如网络中断）。重试
                     Log.WriteLog(
                         string.Format("调用OpenImApi 出错！程序运行发生异常，稍后重试。第 {0}/10 次。 \n 错误信息：{1} \n 请求信息：{2}，{3}\n"
-                            , counter, JsonParse.Serialize(ex), request, JsonParse.Serialize(request)));
+                            , counter, JsonNet.Serialize(ex), request, JsonNet.Serialize(request)));
                     Log.WriteLog(ex);
                     System.Threading.Thread.Sleep(1000); // 延迟一秒重试时间
                 }
