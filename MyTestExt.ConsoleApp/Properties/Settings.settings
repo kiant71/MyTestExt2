@@ -1,21 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MyTestExt.ConsoleApp.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
   <Profiles />
-  <Settings>
-    <Setting Name="MyTestExt_ConsoleApp_cn_org_zhongdengwang_ws_LoginService_WSLoginServiceService" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">https://ws.zhongdengwang.org.cn/mfrs_ws_test/services/LoginService</Value>
-    </Setting>
-    <Setting Name="MyTestExt_ConsoleApp_cn_org_zhongdengwang_ws_InitRegisterService_WSInitRegisterServiceService" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">https://ws.zhongdengwang.org.cn/mfrs_ws_test/services/InitRegisterService</Value>
-    </Setting>
-    <Setting Name="MyTestExt_ConsoleApp_cn_org_zhongdengwang_wsquery_QueryBySubject_WSQueryBySubjectServiceService" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">https://wsquery.zhongdengwang.org.cn/mfrsq_ws_test/services/queryBySubject</Value>
-    </Setting>
-    <Setting Name="MyTestExt_ConsoleApp_cn_org_zhongdengwang_wsquery_Login_WSLoginServiceService" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">https://wsquery.zhongdengwang.org.cn/mfrsq_ws_test/services/login</Value>
-    </Setting>
-    <Setting Name="MyTestExt_ConsoleApp_cn_org_zhongdengwang_wsquery_QueryDownLoadFileByNum_WSDownLoadFileByNumServiceService" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">https://wsquery.zhongdengwang.org.cn/mfrsq_ws_test/services/queryDownLoadFileByNum</Value>
-    </Setting>
-  </Settings>
+  <Settings />
 </SettingsFile>

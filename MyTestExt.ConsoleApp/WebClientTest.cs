@@ -13,7 +13,7 @@ namespace MyTestExt.ConsoleApp
     {
         public static void Do()
         {
-            var url = "http://cloud10.sap360.com.cn:36002/4a6d58262d1141efa8dc119e936000b5_2019_5_30_3a0f2aa507e3410ab3e1e94e92301de0---.zip";
+            var url = "";
             var destFile = @"D:\0.Work\TestZip\111.zip";
             try
             {

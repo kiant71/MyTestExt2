@@ -16,6 +16,7 @@ namespace MyTestExt.ConsoleApp
 
         public void Do()
         {
+//<<<<<<< HEAD
             //Do_Base64();
 
             ReplaceTest();
@@ -49,6 +50,11 @@ namespace MyTestExt.ConsoleApp
                 }
             }
 
+//=======
+
+//            var strA222 = string.Format("123123");
+//            Debug("sdfsdf" + "3424233333");
+//>>>>>>> 24c0f261ed84310cc5bb4541765d3f317093f11e
 
             //BulidSeq();
 
@@ -243,6 +249,19 @@ namespace MyTestExt.ConsoleApp
         public static (int ID, string Name) Get()
         {
             return (ID : 2, Name : "AD" );
+        }
+
+
+        public static void Debug(string format, params object[] args)
+        {
+            try
+            {
+                var aaa = string.Format(format, args);
+            }
+            catch (Exception ex)
+            {
+                
+            }
         }
     }
 

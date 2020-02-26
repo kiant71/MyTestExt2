@@ -250,6 +250,7 @@
     <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.2\lib\netstandard2.0\System.Memory.dll</HintPath>
     </Reference>
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.NetworkInformation, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Net.NetworkInformation.4.3.0\lib\net46\System.Net.NetworkInformation.dll</HintPath>
@@ -302,6 +303,7 @@
     <Compile Include="AsyncTest.cs" />
     <Compile Include="AsyncTest2.cs" />
     <Compile Include="AttributeTest.cs" />
+    <Compile Include="Barcode.cs" />
     <Compile Include="BspTest.cs" />
     <Compile Include="DataAccessTest.cs" />
     <Compile Include="DateTimeTest.cs" />
@@ -365,56 +367,9 @@
     <Compile Include="Util\SqlMapper.cs" />
     <Compile Include="Util\UploadPrivateHelper.cs" />
     <Compile Include="Util\ZhongDengUtil.cs" />
-    <Compile Include="Util\ZhongDeng\Model\AddressReqApiModel.cs" />
-    <Compile Include="Util\ZhongDeng\Model\DebteeBaseReqApiModel.cs" />
-    <Compile Include="Util\ZhongDeng\Model\DebteeEnptReqApiModel.cs" />
-    <Compile Include="Util\ZhongDeng\Model\DebteeFinInstReqApiModel.cs" />
-    <Compile Include="Util\ZhongDeng\Model\DebteeIndiReqApiModel.cs" />
-    <Compile Include="Util\ZhongDeng\Model\DebteeInstReqApiModel.cs" />
-    <Compile Include="Util\ZhongDeng\Model\DebteeOtherReqApiModel.cs" />
-    <Compile Include="Util\ZhongDeng\Model\DebteePersReqApiModel.cs" />
-    <Compile Include="Util\ZhongDeng\Model\DebtorBaseReqApiModel.cs" />
-    <Compile Include="Util\ZhongDeng\Model\DebtorEnptReqApiModel.cs" />
-    <Compile Include="Util\ZhongDeng\Model\DebtorFinInstReqApiModel.cs" />
-    <Compile Include="Util\ZhongDeng\Model\DebtorIndiReqApiModel.cs" />
-    <Compile Include="Util\ZhongDeng\Model\DebtorInstReqApiModel.cs" />
-    <Compile Include="Util\ZhongDeng\Model\DebtorOtherReqApiModel.cs" />
-    <Compile Include="Util\ZhongDeng\Model\DebtorPersReqApiModel.cs" />
-    <Compile Include="Util\ZhongDeng\Model\FeedbackRspApiModel.cs" />
-    <Compile Include="Util\ZhongDeng\Model\PledgeReceivableReqApiModel.cs" />
-    <Compile Include="Util\ZhongDeng\Model\PledgeAttachmentReqApiModel.cs" />
-    <Compile Include="Util\ZhongDeng\Model\PledgeBaseReqApiModel.cs" />
-    <Compile Include="Util\ZhongDeng\Model\QueryBySubjectRspApiModel.cs" />
-    <Compile Include="Util\ZhongDeng\Model\ReceivableReqApiModel.cs" />
-    <Compile Include="Util\ZhongDeng\Model\RegisterRootReqApiModel.cs" />
     <Compile Include="Util\ZhongDeng\SM2.cs" />
     <Compile Include="Util\ZhongDeng\SM2Cipher.cs" />
     <Compile Include="Util\ZhongDeng\SM3.cs" />
-    <Compile Include="Web References\cn.org.zhongdengwang.ws.InitRegisterService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
-    <Compile Include="Web References\cn.org.zhongdengwang.ws.LoginService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
-    <Compile Include="Web References\cn.org.zhongdengwang.wsquery.Login\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
-    <Compile Include="Web References\cn.org.zhongdengwang.wsquery.QueryBySubject\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
-    <Compile Include="Web References\cn.org.zhongdengwang.wsquery.QueryDownLoadFileByNum\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
     <Compile Include="WebClientTest.cs" />
     <Compile Include="XmlTest.cs" />
     <Compile Include="ZhongDengTest.cs" />
@@ -429,31 +384,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Web References\cn.org.zhongdengwang.ws.InitRegisterService\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\cn.org.zhongdengwang.ws.InitRegisterService\WSInitRegisterServiceService.wsdl" />
-    <None Include="Web References\cn.org.zhongdengwang.ws.LoginService\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\cn.org.zhongdengwang.ws.LoginService\WSLoginServiceService.wsdl" />
-    <None Include="Web References\cn.org.zhongdengwang.wsquery.Login\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\cn.org.zhongdengwang.wsquery.Login\WSLoginServiceService.wsdl" />
-    <None Include="Web References\cn.org.zhongdengwang.wsquery.QueryBySubject\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\cn.org.zhongdengwang.wsquery.QueryBySubject\WSQueryBySubjectServiceService.wsdl" />
-    <None Include="Web References\cn.org.zhongdengwang.wsquery.QueryDownLoadFileByNum\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\cn.org.zhongdengwang.wsquery.QueryDownLoadFileByNum\WSDownLoadFileByNumServiceService.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resource\ErrorCode.xml">
@@ -468,63 +398,6 @@
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferenceUrl Include="https://ws.zhongdengwang.org.cn/mfrs_ws_test/services/InitRegisterService%3fwsdl">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\cn.org.zhongdengwang.ws.InitRegisterService\</RelPath>
-      <UpdateFromURL>https://ws.zhongdengwang.org.cn/mfrs_ws_test/services/InitRegisterService%3fwsdl</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>MyTestExt_ConsoleApp_cn_org_zhongdengwang_ws_InitRegisterService_WSInitRegisterServiceService</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="https://ws.zhongdengwang.org.cn/mfrs_ws_test/services/LoginService%3fwsdl">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\cn.org.zhongdengwang.ws.LoginService\</RelPath>
-      <UpdateFromURL>https://ws.zhongdengwang.org.cn/mfrs_ws_test/services/LoginService%3fwsdl</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>MyTestExt_ConsoleApp_cn_org_zhongdengwang_ws_LoginService_WSLoginServiceService</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="https://wsquery.zhongdengwang.org.cn/mfrsq_ws_test/services/login%3fwsdl">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\cn.org.zhongdengwang.wsquery.Login\</RelPath>
-      <UpdateFromURL>https://wsquery.zhongdengwang.org.cn/mfrsq_ws_test/services/login%3fwsdl</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>MyTestExt_ConsoleApp_cn_org_zhongdengwang_wsquery_Login_WSLoginServiceService</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="https://wsquery.zhongdengwang.org.cn/mfrsq_ws_test/services/queryBySubject%3fwsdl">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\cn.org.zhongdengwang.wsquery.QueryBySubject\</RelPath>
-      <UpdateFromURL>https://wsquery.zhongdengwang.org.cn/mfrsq_ws_test/services/queryBySubject%3fwsdl</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>MyTestExt_ConsoleApp_cn_org_zhongdengwang_wsquery_QueryBySubject_WSQueryBySubjectServiceService</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="https://wsquery.zhongdengwang.org.cn/mfrsq_ws_test/services/queryDownLoadFileByNum%3fwsdl">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\cn.org.zhongdengwang.wsquery.QueryDownLoadFileByNum\</RelPath>
-      <UpdateFromURL>https://wsquery.zhongdengwang.org.cn/mfrsq_ws_test/services/queryDownLoadFileByNum%3fwsdl</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>MyTestExt_ConsoleApp_cn_org_zhongdengwang_wsquery_QueryDownLoadFileByNum_WSDownLoadFileByNumServiceService</CachedSettingsPropName>
-    </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyTestExt.Util\MyTestExt.Utils.csproj">
