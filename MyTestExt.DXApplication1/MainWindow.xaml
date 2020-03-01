@@ -1,0 +1,17 @@
+﻿<dx:ThemedWindow
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:Views="clr-namespace:MyTestExt.DXApplication1.Views"
+    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" 
+    x:Class="MyTestExt.DXApplication1.MainWindow"
+    Title="MainWindow" Height="800" Width="1000">
+    <Grid>
+        <Views:MainView HorizontalAlignment="Left" Width="1000"/>
+        <dxb:ToolBarControl HorizontalAlignment="Left" Margin="114,93,0,0" Width="547" Height="119">
+            <dxb:ToolbarListItem Content="1111"/>
+            <dxb:ToolbarListItem/>
+            <dxb:ToolbarListItem/>
+        </dxb:ToolBarControl>
+    </Grid>
+</dx:ThemedWindow>
