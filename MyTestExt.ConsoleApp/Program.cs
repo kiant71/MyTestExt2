@@ -51,7 +51,7 @@ namespace ConsoleApplication1
 
             //ITextSharpTest.Do();
 
-            new ListTest().Do();
+            //new ListTest().Do();
 
             //MongodbTest.Do();
 
@@ -68,6 +68,9 @@ namespace ConsoleApplication1
             //RegularTest.Do();
 
             //SharpCompressTest.Do();
+
+            new SHA1withRSA().Do();
+
             //SignClientTest.Do();
             //SignServerTest.Do1();
             //new SM2Test().Do();

@@ -339,6 +339,7 @@
     <Compile Include="RequestTest.cs" />
     <Compile Include="RSATest.cs" />
     <Compile Include="ServiceControllerTest.cs" />
+    <Compile Include="SHA1withRSA.cs" />
     <Compile Include="SharpCompressTest.cs" />
     <Compile Include="SignClientTest.cs" />
     <Compile Include="RSATest2.cs" />
