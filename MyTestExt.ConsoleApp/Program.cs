@@ -32,17 +32,19 @@ namespace ConsoleApplication1
 
 
             //EnumTest.DoTest();
+            EnumAttributeTest.Do();
+
             //DynamicTest.Do();
             //EnCodingTest.Test();
 
             //FileTest.Do();
             //ForEachTest.Do();
 
-//<<<<<<< HEAD
-//            //HttpClientTest.Do();
+            //<<<<<<< HEAD
+            //            //HttpClientTest.Do();
 
-//=======
-//>>>>>>> 24c0f261ed84310cc5bb4541765d3f317093f11e
+            //=======
+            //>>>>>>> 24c0f261ed84310cc5bb4541765d3f317093f11e
             //JsonTest.Do();
 
             //new IntergTest().Do();

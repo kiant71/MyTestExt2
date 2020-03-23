@@ -310,6 +310,7 @@
     <Compile Include="DictionaryTest.cs" />
     <Compile Include="DownTest.cs" />
     <Compile Include="DynamicTest.cs" />
+    <Compile Include="EnumAttributeTest.cs" />
     <Compile Include="EnumTest.cs" />
     <Compile Include="FileTest.cs" />
     <Compile Include="ForEachTest.cs" />
