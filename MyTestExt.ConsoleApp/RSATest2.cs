@@ -25,6 +25,7 @@ namespace MyTestExt.ConsoleApp
             // 方式1：【客户端】-【公钥】加密原始数据，然后提交到服务器端
             var baseStr = "这是个原始数据信息12345！";
             var encBytes = RsaCrypto.Encrypt(baseStr, PubKey);
+            var encStr = Encoding.UTF8.GetString(encBytes);
 
             // 方式1：【服务器】-【私钥】解密收到的数据
             var decStr = RsaCrypto.Decrypt(encBytes, PriKey);

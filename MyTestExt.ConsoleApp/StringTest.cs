@@ -16,10 +16,9 @@ namespace MyTestExt.ConsoleApp
 
         public void Do()
         {
-//<<<<<<< HEAD
-            //Do_Base64();
+            Do_Base64();
 
-            ReplaceTest();
+            //ReplaceTest();
         }
 
 
@@ -155,6 +154,8 @@ namespace MyTestExt.ConsoleApp
         {
             var str =
                 "{  \"CompanyID\": 1,  \"UserSign\": 100021,  \"UserName\": \"张三 waill\",  \"ImgFullUrl\": \"https://download1.100mubiao.com/group1/M00/00/53/wKhkHVeQmc6EUqLnAAAAADLzWu0426.jpg\",  \"SessionKey\": \"8a22952f78e74030ab8933db612017de\"}";
+
+            str = "1588839204-1200000-192.168.1.100";
 
             var encode = ConvertValue.EncodeBase64(str);
             var decode = ConvertValue.DecodeBase64(encode);

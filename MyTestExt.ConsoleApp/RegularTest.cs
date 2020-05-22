@@ -13,7 +13,8 @@ namespace MyTestExt.ConsoleApp
     {
         public static void Do()
         {
-            Do2_Group();
+            //Do2_Group();
+            Group2();
         }
 
 
@@ -33,7 +34,24 @@ namespace MyTestExt.ConsoleApp
 
                 ret[code] = match.Groups["msg"].Value.Replace("\\r\\n", "");
             }
+        }
 
+        public static void Group2()
+        {
+            var strs = new List<string>{"bytes=0-999999", "bytes=1000000-1999999", "", "bytes=0-", "bytes=-999999"};
+
+            var pattern = @"bytes=(?<from>\d+)-(?<to>\d+)";
+            var regex = new System.Text.RegularExpressions.Regex(pattern);
+            
+            foreach (var str in strs)
+            {
+                var matches = regex.Matches(str);
+                foreach (Match match in matches)
+                {
+                    long.TryParse(match.Groups["from"].Value, out var from);
+                    long.TryParse(match.Groups["to"].Value, out var to);
+                }
+            }
         }
 
         public void MatchRetr()
