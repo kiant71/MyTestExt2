@@ -37,9 +37,9 @@ namespace MyTestExt.ConsoleApp
             var iosAlert = new { alert = msgText, sound = "sound.caf" };
 
             var aa = JsonNet.Serialize(iosAlert);
-            OpenImApi.CustmsgPush("systemuser", new string[] { "3fa4f83c0807485a89267e010081c71f" }.ToList(), msgText,
-                                            "{\"M\":\"徐晓敏创建签到:广东省深圳市南山区西丽街道源兴科技大厦奇建贸易有限公司南山分公司南山城市展厅\",\"S\":\"签到\",\"T\":15,\"D\":{\"S\":0,\"B\":1539,\"F\":0,\"C\":\"mycom\",\"T\":15,\"A\":\"签到\"},\"C\":\"2016-06-30T14:22:07.7441331+08:00\",\"ID\":445}",
-                                            aa,ptmString);
+            //OpenImApi.CustmsgPush("systemuser", new string[] { "3fa4f83c0807485a89267e010081c71f" }.ToList(), msgText,
+            //                                "{\"M\":\"徐晓敏创建签到:广东省深圳市南山区西丽街道源兴科技大厦奇建贸易有限公司南山分公司南山城市展厅\",\"S\":\"签到\",\"T\":15,\"D\":{\"S\":0,\"B\":1539,\"F\":0,\"C\":\"mycom\",\"T\":15,\"A\":\"签到\"},\"C\":\"2016-06-30T14:22:07.7441331+08:00\",\"ID\":445}",
+            //                                aa,ptmString);
         }
 
         public static void Test2()

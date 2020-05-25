@@ -9,15 +9,20 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using java.io;
+using MyTestExt.ConsoleApp.Util;
+using MyTestExt.Utils;
+using org.apache.pdfbox.pdmodel;
+using org.apache.pdfbox.util;
 
 namespace MyTestExt.ConsoleApp
 {
-    public class ZipTest
+    public class ZipArchiveTest
     {
         string zipedFile = @"D:\0.Work\TestZip\TestFolder.zip";
         string baseFolder = @"D:\0.Work\TestZip\TestFolder";
 
-        public async Task Do()
+        public void Do()
         {
             var sw = new System.Diagnostics.Stopwatch();
             sw.Start();
@@ -28,15 +33,15 @@ namespace MyTestExt.ConsoleApp
 
             //G2Test_ZipFolder();
 
-            //G2Test_ZipActive();
+            //ZipActive_Create();
+            ZipActive_Entries();
 
             //await CreateInMemory();
 
-            ZipFilesView();
+            //ZipFilesView();
 
             sw.Stop();
-            Console.WriteLine();
-            Console.WriteLine(" all use " + sw.ElapsedMilliseconds / 1000);
+
         }
 
 
@@ -49,19 +54,17 @@ namespace MyTestExt.ConsoleApp
             var sw = new Stopwatch();
             sw.Start();
 
-            if (File.Exists(file))
-                File.Delete(file);
+            if (System.IO.File.Exists(file))
+                System.IO.File.Delete(file);
 
             // 2g 35(s) - NoCompression
             System.IO.Compression.ZipFile.CreateFromDirectory(folder, file, CompressionLevel.NoCompression, false);
 
             sw.Stop();
-            Console.WriteLine("use (s):" + sw.ElapsedMilliseconds / 1000);
         }
-
         
 
-        public void G2Test_ZipActive()
+        public void ZipActive_Create()
         {
             var folder = @"D:\0.Work\TestZip\TestFolder\2GTest";
             var file = @"D:\0.Work\TestZip\2GTest_2.zip";
@@ -69,8 +72,8 @@ namespace MyTestExt.ConsoleApp
             var sw = new Stopwatch();
             sw.Start();
 
-            if (File.Exists(file))
-                File.Delete(file);
+            if (System.IO.File.Exists(file))
+                System.IO.File.Delete(file);
 
             var dict2 = new Dictionary<string, string>();
             var allDirs = Directory.GetDirectories(folder, "*", SearchOption.AllDirectories);
@@ -111,16 +114,70 @@ namespace MyTestExt.ConsoleApp
             //});
 
             sw.Stop();
-            Console.WriteLine("use (s):" + sw.ElapsedMilliseconds / 1000);
         }
 
+        public void ZipActive_Entries()
+        {
+            var file = @"D:\0.Work\FtpTest-compress\D_sap360File8fc15228892c4c70b428022708118f94202051228b1397a8ad048198aca44c88039481e.zip";
 
+            var fs = new FileStream(file, FileMode.Open, FileAccess.Read);
+            var data = new byte[fs.Length];
+            fs.Read(data, 0, data.Length);
+            using (var stream = new MemoryStream(data))
+            {
+                using (var archive = new ZipArchive(stream, ZipArchiveMode.Read, true, Encoding.GetEncoding("GBK")))
+                {
+                    // https://stackoverflow.com/questions/42262013/how-can-i-get-the-valid-entries-of-a-ziparchive-when-one-them-contains-illegal-c
+                    
+                    // 如果存在 xml文件，则是发生错误
+                    var entryErrorXml = archive.Entries.FirstOrDefault(c =>
+                        c.Name.EndsWith(".xml", StringComparison.OrdinalIgnoreCase));
+                    if (entryErrorXml != null)
+                    {
+                        // error.
+                    }
+
+                    // 如果不存在登记证明文件，则返回错误， ex.00031470000003746685.pdf 登记编号序列
+                    var pdfName = "test" + ".pdf";
+                    var entryReg = archive.Entries.FirstOrDefault(c => c.Name.ToLower() == pdfName.ToLower());
+                    if (entryReg == null)
+                    {
+                        // error.
+                    } 
+
+                    // 解析、上传(系统的)登记证明文件.pdf
+                    var regData = ReadBytes(entryReg);
+                    #region MyRegion
+                    using (var inputStream = new ByteArrayInputStream(regData))
+                    {
+                        using (var doc = PDDocument.load(inputStream))
+                        {
+                            var pdfStripper = new PDFTextStripper();
+                            //ret.RegisterText = pdfStripper.getText(doc);
+                        }
+
+                        //ret.RegisterFile = Upload(entryReg);
+                    } 
+                    #endregion
+
+                    // 上传登记资料的附件列表
+                    var atts = new List<ZipArchiveEntry>();
+                    foreach (var entryAttach in archive.Entries.Where(c =>
+                                                    c.Name.ToLower() != pdfName.ToLower()))
+                    {
+                        atts.Add(entryAttach);
+                    }
+
+                } // end.of. using (var zipArchive = new ZipArchive(stream))
+            } // end.of. using  using (var stream = new MemoryStream(data))
+        }
+        
 
         public void ZipFolder()
         {
             System.IO.Compression.ZipFile.CreateFromDirectory(baseFolder, zipedFile);
         }
-
+        
 
         public void Add()
         {
@@ -220,7 +277,6 @@ namespace MyTestExt.ConsoleApp
                 if (!Directory.Exists(descFolder) && !string.IsNullOrWhiteSpace(descFolder))
                     Directory.CreateDirectory(descFolder);
 
-                Console.WriteLine("start down : " + descFile);
 
                 tasks.Add(Task.Factory.StartNew(() => { DownLoadFile(kv.Value, descFile); }));
 
@@ -232,9 +288,7 @@ namespace MyTestExt.ConsoleApp
             Task.WaitAll(tasks.ToArray());
 
             sw.Stop();
-            Console.WriteLine("down all-finish(sec.) : " + sw.ElapsedMilliseconds / 1000);
-            Console.WriteLine();
-            Console.WriteLine();
+
 
 
 
@@ -274,14 +328,12 @@ namespace MyTestExt.ConsoleApp
                 
 
                 sw.Stop();
-                Console.WriteLine(" sec. : " + sw.ElapsedMilliseconds / 1000);
-                Console.WriteLine();
+
             }
 
 
 
 
-            Console.WriteLine("done!!");
 
         }
 
@@ -421,7 +473,7 @@ namespace MyTestExt.ConsoleApp
         private static byte[] ReadBytes(ZipArchiveEntry entry)
         {
             byte[] bytes;
-            using (var entryStream = entry.Open())
+            using (Stream entryStream = entry.Open())
             {
                 using (var reader = new BinaryReader(entryStream))
                 {

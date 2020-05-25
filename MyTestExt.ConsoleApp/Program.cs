@@ -14,6 +14,8 @@ namespace ConsoleApplication1
     {
         public static void Main(string[] args)
         {
+            try
+            {
             //var aa = new List<string> {"aa", "bb", "cc"};
             //var bb = aa.Take(20);
 
@@ -63,15 +65,21 @@ namespace ConsoleApplication1
 
             //new PdfTest().Do();
 
-            //RSATest2.Do4();
+            //RSATest2.Do1();
 
             //ReadErrorCode();
 
-            new RegularTest().Do();
+            RegularTest.Do();
 
             //SharpCompressTest.Do();
+
+            //new SHA1withRSA().Do();
+
             //SignClientTest.Do();
             //SignServerTest.Do1();
+
+            //new StringTest().Do();
+
             //new SM2Test().Do();
             //new SM2Test2().Do();
             //new SM2Test3().Do();
@@ -91,7 +99,16 @@ namespace ConsoleApplication1
 
             //ZhongDengTest.Do();
 
-            //new ZipTest().Do();
+            //new ZipArchiveTest().Do();
+            //new Zip_SharpZipLibTest().Do();
+            //new Zip_SevenZipTest().Do();
+            
+
+            }
+            catch (Exception e)
+            {
+                //
+            }
 
             while (true)
                 System.Threading.Thread.Sleep(1000);

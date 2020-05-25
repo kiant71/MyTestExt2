@@ -80,6 +80,9 @@
     <Reference Include="fontbox-1.8.9, Version=1.8.9.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Pdfbox-IKVM.1.8.9\lib\fontbox-1.8.9.dll</HintPath>
     </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.2.0.246, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.1.2.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="icu4j-3.8, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Pdfbox-IKVM.1.8.9\lib\icu4j-3.8.dll</HintPath>
     </Reference>
@@ -204,6 +207,9 @@
     <Reference Include="ServiceStack.Text, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ServiceStack.Text.Core.5.5.0\lib\netstandard2.0\ServiceStack.Text.dll</HintPath>
     </Reference>
+    <Reference Include="SevenZipSharp, Version=1.0.19.0, Culture=neutral, PublicKeyToken=c8ff6ba0184838bb, processorArchitecture=MSIL">
+      <HintPath>..\packages\SevenZipSharp.Net45.1.0.19\lib\net45\SevenZipSharp.dll</HintPath>
+    </Reference>
     <Reference Include="SharpCompress, Version=0.23.0.0, Culture=neutral, PublicKeyToken=afb0a02973931d96, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpCompress.0.23.0\lib\net45\SharpCompress.dll</HintPath>
     </Reference>
@@ -294,9 +300,6 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TopSdk">
-      <HintPath>Resource\TopSdk.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AesTest.cs" />
@@ -338,8 +341,8 @@
     </Compile>
     <Compile Include="RegularTest.cs" />
     <Compile Include="RequestTest.cs" />
-    <Compile Include="RSATest.cs" />
     <Compile Include="ServiceControllerTest.cs" />
+    <Compile Include="SHA1withRSA.cs" />
     <Compile Include="SharpCompressTest.cs" />
     <Compile Include="SignClientTest.cs" />
     <Compile Include="RSATest2.cs" />
@@ -374,7 +377,10 @@
     <Compile Include="WebClientTest.cs" />
     <Compile Include="XmlTest.cs" />
     <Compile Include="ZhongDengTest.cs" />
-    <Compile Include="ZipTest.cs" />
+    <Compile Include="Zip_JavacFileTest.cs" />
+    <Compile Include="Zip_SevenZipTest.cs" />
+    <Compile Include="Zip_SharpZipLibTest.cs" />
+    <Compile Include="ZipArchiveTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -392,6 +398,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Libs\7z.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Libs\7z64.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Libs\License.txt" />
     <Content Include="license.txt" />
   </ItemGroup>
   <ItemGroup>
