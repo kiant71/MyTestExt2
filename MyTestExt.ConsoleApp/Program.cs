@@ -32,7 +32,7 @@ namespace ConsoleApplication1
 
 
             //EnumTest.DoTest();
-            EnumAttributeTest.Do();
+            //EnumAttributeTest.Do();
 
             //DynamicTest.Do();
             //EnCodingTest.Test();
@@ -67,7 +67,7 @@ namespace ConsoleApplication1
 
             //ReadErrorCode();
 
-            //RegularTest.Do();
+            new RegularTest().Do();
 
             //SharpCompressTest.Do();
             //SignClientTest.Do();
@@ -87,7 +87,7 @@ namespace ConsoleApplication1
 
 
 
-            XmlTest.Do();
+            //XmlTest.Do();
 
             //ZhongDengTest.Do();
 

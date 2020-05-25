@@ -11,9 +11,9 @@ namespace MyTestExt.ConsoleApp
 {
     public class RegularTest
     {
-        public static void Do()
+        public void Do()
         {
-            Do2_Group();
+            VerifyComment();
         }
 
 
@@ -149,6 +149,15 @@ namespace MyTestExt.ConsoleApp
             return regex.IsMatch(input);
         }
 
-        
+        private void VerifyComment()
+        {
+            var str = "select * /*/*/*from*/*/*/ T_OUSI";
+            var pattern = @"\/\*(\s|.)*\*\/";
+            var regex = new Regex(pattern);
+            var match = regex.Match(str);
+            var val = match.Value;
+            var index = match.Index;
+        }
+
     }
 }
