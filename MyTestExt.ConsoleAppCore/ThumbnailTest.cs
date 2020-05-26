@@ -28,40 +28,62 @@ namespace MyTestExt.ConsoleAppCore
         // 10: 生成图像指定宽高，不保持比例（可能会产生图片变形）
         public void Draw_40()
         {
-            // todo.都小于则原样输出
-
-            var sourceFullName = @"D:\0.Work\Thumb\kai.jpg";
-            var targetFullUrl = @"D:\0.Work\Thumb\kai_thu600x800_40.jpg";
-            var souceImage = Image.FromFile(sourceFullName);
-            var rectangle = GetThumbSize4(souceImage.Width, souceImage.Height, 600, 800);
+            var srcFullName = @"D:\0.Work\Thumb\以宽优先.jpg";
+            var dstFullUrl = @"D:\0.Work\Thumb\以宽优先_thu800x600_40.jpg";
+            var srcImage = Image.FromFile(srcFullName);
+            var rectangle = GetThumbSize4(srcImage.Width, srcImage.Height, 800, 600);
             
-            var targetImage = new Bitmap(600, 800);
-            using var gr = Graphics.FromImage(targetImage);
+            // 判断是否需要裁切
+            if (rectangle.X > 0 || rectangle.Y > 0)
+            {
+                var fromR = new Rectangle(rectangle.X, rectangle.Y, srcImage.Width-rectangle.X-rectangle.X
+                    , srcImage.Height-rectangle.Y-rectangle.Y);
+                var toR = new Rectangle(0, 0, srcImage.Width, srcImage.Height);
+                var pickedImage = new Bitmap(srcImage.Width, srcImage.Height);
+                var pickedG = Graphics.FromImage(pickedImage);
+                pickedG.DrawImage(srcImage, toR, fromR, GraphicsUnit.Pixel);
+                srcImage = (Image) pickedImage.Clone();
+
+                pickedG.Dispose();
+                pickedImage.Dispose();
+            }
+            
+            var dstImage = new Bitmap(rectangle.Width, rectangle.Height);
+            using var gr = Graphics.FromImage(dstImage);
             gr.SmoothingMode = SmoothingMode.HighQuality;
             gr.InterpolationMode = InterpolationMode.HighQualityBicubic;
             gr.PixelOffsetMode = PixelOffsetMode.HighQuality;
-            gr.DrawImage(souceImage, rectangle);
+            gr.DrawImage(srcImage, 0, 0, rectangle.Width, rectangle.Height);
 
-            targetImage.Save(targetFullUrl, ImageFormat.Jpeg);
+            dstImage.Save(dstFullUrl, ImageFormat.Jpeg);
         }
 
         /// <summary>
         /// 40: 生成图像指定宽高，图像裁剪后保持比例（裁剪了图片的一部分，微博、朋友圈常用）
         /// </summary>
-        public Rectangle GetThumbSize4(int srcWidth, int srcHeight, int tgtWidth, int tgtHeight)
+        private Rectangle GetThumbSize4(int srcWidth, int srcHeight, int dstWidth, int dstHeight)
         {
-            var size = new Size(tgtWidth, tgtHeight);
-            var srcScale = (double) srcHeight / srcWidth; // 原始高宽比
-            var dstScale = (double) tgtHeight / tgtWidth; // 目标高宽比
+            if (srcWidth < dstHeight) dstWidth = srcWidth;
+            if (srcHeight < dstHeight) dstHeight = srcHeight;
 
-            var x = 0;
-            var y = 0;
-            
+            var point = new Point(0, 0);
+            var size = new Size(dstWidth, dstHeight);
+            var heightScale = (double) srcHeight / dstHeight; // 旧新高比例
+            var widthScale = (double) srcWidth / dstWidth; // 旧新宽比例
 
-            // 过高 || 过宽
-            return srcScale >= dstScale
-                ? new Rectangle(new Point(0, (srcHeight - (int) (srcWidth * dstScale)) / 2), size)
-                : new Rectangle(new Point((srcWidth - (int) (srcHeight * dstScale)) / 2, 0), size);
+            // 判断原图需要裁切标记
+            // 如果都相等，则不用变动
+            // 否则选择比例最小(高比/宽比)的为基准，然后照着这个比例裁剪另外(宽/高)。
+            if (heightScale < widthScale)
+            {
+                point.X = (int) ((srcWidth - dstWidth * heightScale) / 2); 
+            }
+            else if (widthScale < heightScale)
+            {
+                point.Y = (int) ((srcHeight - dstHeight * widthScale) / 2);
+            }
+
+            return new Rectangle(point, size);
         }
 
 
