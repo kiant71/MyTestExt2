@@ -17,7 +17,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTestExt.WebApi", "MyTestE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp2", "WebApp2\WebApp2.csproj", "{34ADCC98-9F7D-4257-A253-66DA45706126}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTestExt.ConsoleAppCore", "MyTestExt.ConsoleAppCore\MyTestExt.ConsoleAppCore.csproj", "{633F41A2-7394-4317-9065-711EE9AA5454}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTestExt.ConsoleAppCore", "MyTestExt.ConsoleAppCore\MyTestExt.ConsoleAppCore.csproj", "{633F41A2-7394-4317-9065-711EE9AA5454}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "WpfApp1\WpfApp1.csproj", "{CF276697-8EF5-4A02-BC18-158D050D26AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,6 +93,14 @@ Global
 		{633F41A2-7394-4317-9065-711EE9AA5454}.Release|Any CPU.Build.0 = Release|Any CPU
 		{633F41A2-7394-4317-9065-711EE9AA5454}.Release|x64.ActiveCfg = Release|Any CPU
 		{633F41A2-7394-4317-9065-711EE9AA5454}.Release|x64.Build.0 = Release|Any CPU
+		{CF276697-8EF5-4A02-BC18-158D050D26AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF276697-8EF5-4A02-BC18-158D050D26AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF276697-8EF5-4A02-BC18-158D050D26AF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CF276697-8EF5-4A02-BC18-158D050D26AF}.Debug|x64.Build.0 = Debug|Any CPU
+		{CF276697-8EF5-4A02-BC18-158D050D26AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF276697-8EF5-4A02-BC18-158D050D26AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF276697-8EF5-4A02-BC18-158D050D26AF}.Release|x64.ActiveCfg = Release|Any CPU
+		{CF276697-8EF5-4A02-BC18-158D050D26AF}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
