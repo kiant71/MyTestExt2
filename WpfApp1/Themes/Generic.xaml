@@ -1,0 +1,58 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:WpfApp1">
+
+
+    <Style TargetType="{x:Type local:ColorPicker}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:ColorPicker}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <!--Value="{Binding Path=Red, RelativeSource={RelativeSource TemplatedParent}}"-->
+                        <Slider Name="PART_RedSlider" Grid.Row="0" Minimum="0" Maximum="255" 
+                                Margin="{TemplateBinding Padding}" />
+
+                        <!--Value="{Binding Path=Green, RelativeSource={RelativeSource TemplatedParent}}"-->
+                        <Slider Name="PART_GreenSlider" Grid.Row="1" Minimum="0" Maximum="255" 
+                                Margin="{TemplateBinding Padding}"/>
+
+                        <!--Value="{Binding Path=Blue, RelativeSource={RelativeSource TemplatedParent}}"-->
+                        <Slider Name="PART_BlueSlider" Grid.Row="2" Minimum="0" Maximum="255" 
+                                Margin="{TemplateBinding Padding}" />
+
+                        <Button Grid.Row="3" 
+                                Command="Undo" CommandTarget="{Binding ElementName=colorPicker}">Undo</Button>
+
+                        <Button Grid.Row="4" Content="CustomCmd" Command="local:ColorPicker.CustomCmd" >
+                           
+
+                        </Button>
+
+
+                        <Rectangle Grid.Column="1" Grid.RowSpan="3" Margin="{TemplateBinding Padding}"
+                                   Width="50" Stroke="Black" StrokeThickness="1">
+                            <Rectangle.Fill>
+                                <!--Color="{Binding Path=Color,RelativeSource={RelativeSource TemplatedParent}}"-->
+                                <SolidColorBrush x:Name="PART_PreviewBrush" />
+                            </Rectangle.Fill>
+                        </Rectangle>
+
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
